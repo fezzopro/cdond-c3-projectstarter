@@ -13,6 +13,7 @@ commands:
           when: on_fail
           command: |
             # Your code here
+            echo "Destroying environment: << parameters.workflow_id >> "
             aws cloudformation delete-stack --stack-name "udapeople-backend-${parameters.workflow_id}" || true
             aws cloudformation delete-stack --stack-name "udapeople-frontend-${parameters.workflow_id}" || true
 
@@ -28,6 +29,7 @@ commands:
           # Add when this will run
           when: on_fail
           command: |
+            echo "Revert migrations "
             # Curl command here to see if there was a successful migration associated with the workflow id, store result in SUCCESS variable
             SUCCESS=$(curl -H "token: 7933fe63-4687-4fa1-8426-aa25aa1730ec" --request GET https://api.memstash.io/values/migration_<< parameters.workflow_id >>)
             SUCCESS = 1

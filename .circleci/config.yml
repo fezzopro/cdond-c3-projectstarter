@@ -154,7 +154,7 @@ jobs:
             aws cloudformation deploy \
               --template-file .circleci/files/frontend.yml \
               --tags project=udapeople \
-              --stack-name "udapeople-fronend-${CIRCLE_WORKFLOW_ID:0:7}" \
+              --stack-name "udapeople-frontend-${CIRCLE_WORKFLOW_ID:0:7}" \
               --parameter-overrides ID="${CIRCLE_WORKFLOW_ID:0:7}" 
 
       - run:
@@ -162,7 +162,7 @@ jobs:
           command: |
             aws ec2 describe-instances \
             --query 'Reservations[*].Instances[*].PublicIpAddress' \
-            --filters 'Name=tag:Name, values=backend-${CIRCLE_WORKFLOW_ID:0:7}' \
+            --filters 'Name=tag:Name,values=backend-${CIRCLE_WORKFLOW_ID:0:7}' \
             --output text >> ~/project/.circleci/ansible/inverntory.txt
             cat ~/project/.circleci/ansible/inverntory.txt
       - persist_to_workspace:

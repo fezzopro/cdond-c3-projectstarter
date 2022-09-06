@@ -201,7 +201,7 @@ jobs:
             # Your code here
             pwd
             cd .circleci/ansible
-            al -al
+            ls -al
             ansible-playbook -i inventory.txt configure-server.yml
           no_output_timeout: 30m
           

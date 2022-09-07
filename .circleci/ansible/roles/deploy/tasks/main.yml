@@ -48,5 +48,5 @@
     npm install
     npm audit fix --audit-level=critical
     npm run build
-    npm stop all
-    pm2 start npm start
+    pm2 stop all
+    pm2 start npm -- start

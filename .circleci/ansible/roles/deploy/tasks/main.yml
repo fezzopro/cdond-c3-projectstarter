@@ -25,9 +25,9 @@
   become: true
   apt:
     name: pm2
-    state: present
-    production: yes
     global: yes
+    production: yes
+    state: present
 
 - name: "Create Backend App Directory"
   file:

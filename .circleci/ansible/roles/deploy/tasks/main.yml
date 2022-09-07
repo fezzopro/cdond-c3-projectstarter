@@ -46,6 +46,7 @@
     cd /home/ubuntu/backend_app_dir
     tar xzvf artifact.tar.gz
     npm install
+    npm audit fix --audit-level=critical
     npm run build
     npm stop all
-    pm2 start npm --start
+    pm2 start npm start

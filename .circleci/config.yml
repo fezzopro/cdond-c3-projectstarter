@@ -325,7 +325,7 @@ jobs:
             echo TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts >> ".env"
             echo TYPEORM_MIGRATIONS=./src/migrations/*.ts >> ".env"
             echo TYPEORM_MIGRATIONS_DIR=./src/migrations >> ".env"
-            echo NODE_ENV=production > ".env"
+            echo NODE_ENV=production >> ".env"
             echo TYPEORM_HOST=$TYPEORM_HOST >> ".env"
             echo TYPEORM_PORT=$TYPEORM_PORT >> ".env"
             echo TYPEORM_USERNAME=$TYPEORM_USERNAME >> ".env"
@@ -341,9 +341,6 @@ jobs:
             ls -al
             # zip the directory
             tar -C backend -czvf artifact.tar.gz .
-
-            pwd
-            ls -al
 
             cd .circleci/ansible
 
@@ -414,10 +411,10 @@ jobs:
               return 1
             fi
       # Here's where you will add some code to rollback on failure     
-      # - destroy-environment:
-      #     workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
-      # - revert-migrations: 
-      #     workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
+      - destroy-environment:
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
+      - revert-migrations: 
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   cloudfront-update:
     docker:

@@ -25,6 +25,5 @@
   become: true
   apt:
     name: pm2
+    update_cache: yes
     state: present
-    production: yes
-    global: yes

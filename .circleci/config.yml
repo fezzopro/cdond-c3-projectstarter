@@ -229,6 +229,7 @@ jobs:
             sudo npm install -g npm
             npm run migrations > migrations_dump.txt
             cat migrations_dump.txt
+            echo "has been executed successfully" >> migrations_dump.txt
       - run:
           name: Send migration results to memstash
           command: |

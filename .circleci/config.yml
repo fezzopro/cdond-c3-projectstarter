@@ -233,6 +233,7 @@ jobs:
           name: Send migration results to memstash
           command: |
             # Your code here
+            cat ~/project/backend/migrations_dump.txt
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
               # If you are using memstash.io, generate the token "7933fe63-4687-4fa1-8426-aa25aa1730ec" on the website

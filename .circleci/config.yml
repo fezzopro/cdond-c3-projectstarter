@@ -378,10 +378,10 @@ jobs:
             --filters "Name=tag:Name,Values=backend-${CIRCLE_WORKFLOW_ID:0:7}" \
             --output text )
 
-            echo ${BACKEND_API}
+            # echo ${BACKEND_API}
 
-            export BACKEND =$(echo $BACKEND_API | grep -o '[^ ]*$')
-            echo $BACKEND
+            # export BACKEND =$(echo $BACKEND_API | grep -o '[^ ]*$')
+            # echo $BACKEND
 
             export API_URL="http://${BACKEND_IP}:3030"
             echo "API_URL=${API_URL}"

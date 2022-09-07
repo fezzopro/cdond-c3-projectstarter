@@ -241,9 +241,8 @@ jobs:
               echo ${CIRCLE_WORKFLOW_ID:0:7}
               echo "https://kvdb.io/YU1vy4v3W9nBzFFNt8vuBH/migration_${CIRCLE_WORKFLOW_ID:0:7}"
               curl --insecure https://kvdb.io/YU1vy4v3W9nBzFFNt8vuBH/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
-              return 0
             else
-              return 1
+              echo 1
             fi
             
      # Here's where you will add some code to rollback on failure   

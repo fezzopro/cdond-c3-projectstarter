@@ -341,6 +341,9 @@ jobs:
             # zip the directory
             tar -C backend -czvf artifact.tar.gz .
 
+            pwd
+            ls -al
+
             cd .circleci/ensible
 
             echo "Contents  of the inventory.txt file is -------"

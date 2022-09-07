@@ -23,10 +23,11 @@
 
 - name: "Install pm2"
   become: true
-  apt:
+  npm:
     name: pm2
-    update_cache: yes
     state: present
+    production: yes
+    global: yes
 
 - name: "Create Backend App Directory"
   file:
